@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 import {Background, Usa} from './Main'
+import Day2 from './Day2'
+import Root from './Root'
 
 const Main = () => {
   return (
@@ -15,7 +17,9 @@ const Main = () => {
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={Main}/>
+      <Route path="/" exact component={Root}/>
+      <Route path="/day1" exact component={Main}/>
+      <Route path="/day2" exact component={Day2}/>
     </Router>
   );
 }

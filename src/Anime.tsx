@@ -32,4 +32,5 @@ const Op = keyframes`
     opacity: 1;
   }
 `
+
 export {Bounce, BlurA, Bigger, Op}
