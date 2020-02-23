@@ -32,5 +32,20 @@ const Op = keyframes`
     opacity: 1;
   }
 `
-
-export {Bounce, BlurA, Bigger, Op}
+const UpA = keyframes`
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+`
+const DnA = keyframes`
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+`
+export {Bounce, BlurA, Bigger, Op, UpA, DnA}
