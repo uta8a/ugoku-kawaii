@@ -10,7 +10,7 @@ const BASETIME2 = BASETIME + SceneD1 * 4;
 const BASETIME3 = BASETIME2 + 0.6;
 const SceneD2 = 0.5;
 const LOGOTIME = BASETIME3 + SceneD2 * 4;
-const LogoD = 0.2;
+const LogoD = 0.25;
 // abstruct components
 const Background = styled(Base)`
     overflow: hidden;
@@ -208,12 +208,12 @@ const SplashD = styled(Base)`
 `
 const LogoTitle = styled(Base)`
     transform: scale(0.95);
-    background-image: url("./logo.png");
+    background-image: url("./logo-mini.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    animation: ${Op} ${LogoD}s ${LOGOTIME+ LogoD * 4}s ease forwards;
+    animation: ${Op} ${LogoD * 3}s ${LOGOTIME+ LogoD}s ease forwards;
 `
 const Logo = () => {
     return (
