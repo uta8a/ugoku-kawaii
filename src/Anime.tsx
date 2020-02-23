@@ -48,4 +48,32 @@ const DnA = keyframes`
     transform: translateY(0%);
   }
 `
-export {Bounce, BlurA, Bigger, Op, UpA, DnA}
+const RightA = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
+const LittleRightA = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-5%) rotate(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`
+const LittleRightB = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-5%) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`
+export { Bounce, BlurA, Bigger, Op, UpA, DnA, LittleRightA, LittleRightB, RightA }
