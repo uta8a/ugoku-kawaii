@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3125713c9bef33adba586872f4fbb7bc",
+    "revision": "cb73795a51d69de55570c0d35884c194",
     "url": "/ugoku-kawaii/index.html"
   },
   {
-    "revision": "917b66d2cc11a821fff2",
+    "revision": "32dbc45abab055e92d26",
     "url": "/ugoku-kawaii/static/css/main.00abd3a5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ugoku-kawaii/static/js/2.828f15b9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "917b66d2cc11a821fff2",
-    "url": "/ugoku-kawaii/static/js/main.6213eaa1.chunk.js"
+    "revision": "32dbc45abab055e92d26",
+    "url": "/ugoku-kawaii/static/js/main.e7e7b0ca.chunk.js"
   },
   {
     "revision": "80859da3f0c40e459375",
