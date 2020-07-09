@@ -102,42 +102,42 @@ const Mo4 = styled(WordBox)`
 `
 const MoWord1b = styled(Word)`
     filter: blur(10px);
-    background-image: url("./mo.png");
+    background-image: url("/mo.png");
     animation: ${Op} ${SceneD1}s ${BASETIME}s ease forwards reverse;
 `
 const MoWord2b = styled(Word)`
     filter: blur(10px);
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1}s ease forwards reverse;
 `
 const MoWord3b = styled(Word)`
     filter: blur(10px);
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1 * 2}s ease forwards reverse;
 `
 const MoWord4b = styled(Word)`
     filter: blur(10px);
-    background-image: url("./ha.png");
+    background-image: url("/ha.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1 * 3}s ease forwards reverse;
 `
 const MoWord1 = styled(Word)`
     opacity: 0;
-    background-image: url("./mo.png");
+    background-image: url("/mo.png");
     animation: ${Op} ${SceneD1}s ${BASETIME}s ease forwards;
 `
 const MoWord2 = styled(Word)`
     opacity: 0;
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1}s ease forwards;
 `
 const MoWord3 = styled(Word)`
     opacity: 0;
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1 * 2}s ease forwards;
 `
 const MoWord4 = styled(Word)`
     opacity: 0;
-    background-image: url("./ha.png");
+    background-image: url("/ha.png");
     animation: ${Op} ${SceneD1}s ${BASETIME + SceneD1 * 3}s ease forwards;
 `
 const FuWrapper = styled(WordBoxWrapper)`
@@ -169,19 +169,19 @@ const FuBox4 = styled(WordBox2)`
 `
 const Fu1 = styled(Word)`
     transform: scale(0.7);
-    background-image: url("./mo.png");
+    background-image: url("/mo.png");
 `
 const Fu2 = styled(Word)`
     transform: scale(0.7);
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
 `
 const Fu3 = styled(Word)`
     transform: scale(0.7);
-    background-image: url("./mo.png");
+    background-image: url("/mo.png");
 `
 const Fu4 = styled(Word)`
     transform: scale(0.7);
-    background-image: url("./fu.png");
+    background-image: url("/fu.png");
 `
 const Style = styled(Base)`
 
@@ -208,7 +208,7 @@ const SplashD = styled(Base)`
 `
 const LogoTitle = styled(Base)`
     transform: scale(0.95);
-    background-image: url("./logo-mini.png");
+    background-image: url("/logo-mini.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

@@ -20,8 +20,8 @@ const SquareBase = styled(Base) <{ 'data-time': number }>`
 const BackCover = styled(SquareBase)`
     transform: scale(0.8);
     opacity: 0.2;
-    background-color: white;
-    border-radius: 10%;
+    background-color: #0094d0;
+    border-radius: 20%;
 `
 const BackFrame = styled(SquareBase)`
 `
@@ -30,7 +30,7 @@ const BackStage = styled(SquareBase)`
     overflow: hidden;
 `
 const noise = keyframes`
-  0% { left: 0px; }
+  0% { left: 0px; filter: none; }
   10% { left: 0px; filter: none; }
   10.25% { left: 5rem; filter: hue-rotate(90deg) invert(70%); }
   10.5% { left: 0px; filter: none; }
@@ -49,32 +49,46 @@ const noise = keyframes`
   80% { left: 0px; filter: none; }
   80.25% { left: 5rem; filter: hue-rotate(90deg) invert(70%); }
   80.5% { left: 0px; filter: none; }
-  100% { left: 0px; }
+  100% { left: 0px; filter: none; }
+`
+const BaseGG = styled(Base)`
 `
 const BaseG = styled(Base)`
-  top: calc(50% - 5rem); 
+  height: 100%;
+  width: 100%;
+  transform: translateY(25%) scale(0.7);
 `
 const TextFragmentBase = styled.div`
   position: absolute;
-  top: calc(50% - 5rem);
   width: 100%;
-  height : 1.6rem;
+  height: 20%;
   overflow: hidden;
   & > div {
     height: 100%;
     width: 100%;
     position: absolute;
-    color: #75cfcf;
-    text-align: center;
-    font-size: 8rem;
-    white-space: nowrap;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/ugoku-kawaii/hicoder.png");
+    &::after {
+      content: "";
+      display: block;
+      width: 500%;
+      height: 100%;
+      background-color: #cbbaa9;
+      opacity: 0.09;
+    }
   }
 `
 const TextFragment = styled(TextFragmentBase)<{ 'data-start': string, 'data-number':number }>`
-  top: calc(${ props => props['data-number'] } * 0.2 * 8rem);
+  top: calc(${ props => props['data-number'] } * 0.2 * 20%);
   & > div {
-    animation: ${noise} 4s ${ props => props['data-start'] } ease infinite;
-    top: calc(${ props => props['data-number'] } * -0.2 * 8rem);
+    animation: ${noise} 4s ${ props => props['data-start'] } ease infinite; 
+    top: calc(${ props => props['data-number'] } * -0.2 * 100%);
+    &::after {
+      animation: ${noise} 4s ${ props => props['data-start'] } ease infinite; 
+    }
   }
 `
 const B = () => {
@@ -87,12 +101,14 @@ const B = () => {
     { start: "0.7s", number: 4 },
   ]
   for(let p of data) {
-    list.push(<TextFragment data-start={ p.start } data-number={ p.number }><div>HiCoder</div></TextFragment>)
+    list.push(<TextFragment data-start={ p.start } data-number={ p.number }><div></div></TextFragment>)
   }
   return (
-    <BaseG>
-      { list }
-    </BaseG>
+    <BaseGG>
+      <BaseG>
+        { list }
+      </BaseG>
+    </BaseGG>
   )
 }
 
