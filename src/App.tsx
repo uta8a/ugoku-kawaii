@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom"
+import { HashRouter as Router, Link, Route } from "react-router-dom"
 import {Background, Usa} from './Main'
 import Day2 from './Day2'
 import Day3 from './Day3'

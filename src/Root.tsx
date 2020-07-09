@@ -1,7 +1,7 @@
 import { Base } from './Base'
 import styled, { keyframes } from 'styled-components'
 import React from 'react';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 
 const Background = styled(Base)`
     background-image: linear-gradient(to left top, #ffbcfc, #ffbdda, #ffccb6, #ffe4a0, #ffffa5);
