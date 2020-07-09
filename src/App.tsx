@@ -17,7 +17,7 @@ const Main = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename={ process.env.PUBLIC_URL }>
       <Route path="/" exact component={Root}/>
       <Route path="/day1" exact component={Main}/>
       <Route path="/day2" exact component={Day2}/>
