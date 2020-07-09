@@ -44,6 +44,11 @@ const Root = () => {
                         DAY 2
                     </Link>
                 </RootSquare>
+                <RootSquare>
+                    <Link to="/day3">
+                        DAY 3
+                    </Link>
+                </RootSquare>
             </Container>
         </Background>
     )
