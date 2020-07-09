@@ -29,66 +29,73 @@ const BackStage = styled(SquareBase)`
     transform: scale(0.8);
     overflow: hidden;
 `
+const noise = keyframes`
+  0% { left: 0px; }
+  10% { left: 0px; filter: none; }
+  10.25% { left: 5rem; filter: hue-rotate(90deg) invert(70%); }
+  10.5% { left: 0px; filter: none; }
+  20% { left: 0px; filter: none; }
+  20.25% { left: -5rem; filter: hue-rotate(270deg) invert(30%); }
+  20.5% { left: 0px; filter: none; }
+  40% { left: 0px; filter: none; }
+  40.25% { left: -5rem; filter: hue-rotate(270deg) invert(30%); }
+  40.5% { left: 0px; filter: none; }
+  50% { left: 0px; filter: none; }
+  50.25% { left: 5rem; filter: hue-rotate(90deg) invert(70%); }
+  50.5% { left: 0px; filter: none; }
+  70% { left: 0px; filter:none; }
+  70.25% { left: -5rem;filter: hue-rotate(270deg) invert(30%); }
+  70.5% { left: 0px; filter: none; }
+  80% { left: 0px; filter: none; }
+  80.25% { left: 5rem; filter: hue-rotate(90deg) invert(70%); }
+  80.5% { left: 0px; filter: none; }
+  100% { left: 0px; }
+`
+const BaseG = styled(Base)`
+  top: calc(50% - 5rem); 
+`
+const TextFragmentBase = styled.div`
+  position: absolute;
+  top: calc(50% - 5rem);
+  width: 100%;
+  height : 1.6rem;
+  overflow: hidden;
+  & > div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: #75cfcf;
+    text-align: center;
+    font-size: 8rem;
+    white-space: nowrap;
+  }
+`
+const TextFragment = styled(TextFragmentBase)<{ 'data-start': string, 'data-number':number }>`
+  top: calc(${ props => props['data-number'] } * 0.2 * 8rem);
+  & > div {
+    animation: ${noise} 4s ${ props => props['data-start'] } ease infinite;
+    top: calc(${ props => props['data-number'] } * -0.2 * 8rem);
+  }
+`
+const B = () => {
+  let list = []
+  let data = [
+    { start: "0s", number: 0 },
+    { start: "1.1s", number: 1 },
+    { start: "0.3s", number: 2 },
+    { start: "1.5s", number: 3 },
+    { start: "0.7s", number: 4 },
+  ]
+  for(let p of data) {
+    list.push(<TextFragment data-start={ p.start } data-number={ p.number }><div>HiCoder</div></TextFragment>)
+  }
+  return (
+    <BaseG>
+      { list }
+    </BaseG>
+  )
+}
 
-const B = styled(Base)`
-`
-
-
-
-const Sq1 = styled(Base)`
-  transform: translateY(100%);
-  background-color: #900c3f;
-  animation: ${UpA} 0.5s 1s cubic-bezier(1,0,.25,.99) forwards;
-`
-const Sq2 = styled(Base)`
-  transform: translateY(100%);
-  background-color: #f3c623;
-  animation: ${UpA} 0.5s 1.2s cubic-bezier(1,0,.25,.99) forwards;
-`
-const Sq3 = styled(Base)`
-  transform: translateY(100%);
-  background-color: #a6dcef;
-  animation: ${UpA} 0.5s 1.4s cubic-bezier(1,0,.25,.99) forwards;
-`
-
-const Sq4 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #900c3f;
-  animation: ${DnA} 0.5s 1.6s cubic-bezier(1,0,.25,.99) forwards;
-`
-const Sq5 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #f3c623;
-  animation: ${DnA} 0.5s 1.8s cubic-bezier(1,0,.25,.99) forwards;
-`
-
-const Sq6 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #a6dcef;
-  animation: ${DnA} 0.5s 2.0s cubic-bezier(1,0,.25,.99) forwards;
-`
-const Sq7 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #900c3f;
-  animation: ${DnA} 0.5s 2.4s cubic-bezier(1,0,.25,.99) forwards;
-`
-
-const Sq8 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #f3c623;
-  animation: ${DnA} 0.5s 2.6s cubic-bezier(1,0,.25,.99) forwards;
-`
-const Sq9 = styled(Base)`
-  transform: translateY(-100%);
-  background-color: #a6dcef;
-  animation: ${DnA} 0.5s 2.8s cubic-bezier(1,0,.25,.99) forwards;
-`
-const SqW = styled(Base)`
-  place-items: center;
-  display: flex;
-  transform: translateY(-100%);
-  animation: ${DnA} 0.5s 3.2s cubic-bezier(1,0,.25,.99) forwards;
-`
 const Word = styled(Base)`
     background-size: cover;
     background-position: center;
