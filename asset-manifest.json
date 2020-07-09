@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/ugoku-kawaii/static/css/main.00abd3a5.chunk.css",
-    "main.js": "/ugoku-kawaii/static/js/main.88403c00.chunk.js",
-    "main.js.map": "/ugoku-kawaii/static/js/main.88403c00.chunk.js.map",
+    "main.js": "/ugoku-kawaii/static/js/main.1f6fdb91.chunk.js",
+    "main.js.map": "/ugoku-kawaii/static/js/main.1f6fdb91.chunk.js.map",
     "runtime-main.js": "/ugoku-kawaii/static/js/runtime-main.124d3c0d.js",
     "runtime-main.js.map": "/ugoku-kawaii/static/js/runtime-main.124d3c0d.js.map",
-    "static/js/2.103e123d.chunk.js": "/ugoku-kawaii/static/js/2.103e123d.chunk.js",
-    "static/js/2.103e123d.chunk.js.map": "/ugoku-kawaii/static/js/2.103e123d.chunk.js.map",
+    "static/js/2.828f15b9.chunk.js": "/ugoku-kawaii/static/js/2.828f15b9.chunk.js",
+    "static/js/2.828f15b9.chunk.js.map": "/ugoku-kawaii/static/js/2.828f15b9.chunk.js.map",
     "index.html": "/ugoku-kawaii/index.html",
-    "precache-manifest.f59609633f0dc183c5e55cc7e7db5807.js": "/ugoku-kawaii/precache-manifest.f59609633f0dc183c5e55cc7e7db5807.js",
+    "precache-manifest.3588a547a905ee41daf7b898811881ad.js": "/ugoku-kawaii/precache-manifest.3588a547a905ee41daf7b898811881ad.js",
     "service-worker.js": "/ugoku-kawaii/service-worker.js",
     "static/css/main.00abd3a5.chunk.css.map": "/ugoku-kawaii/static/css/main.00abd3a5.chunk.css.map",
-    "static/js/2.103e123d.chunk.js.LICENSE.txt": "/ugoku-kawaii/static/js/2.103e123d.chunk.js.LICENSE.txt"
+    "static/js/2.828f15b9.chunk.js.LICENSE.txt": "/ugoku-kawaii/static/js/2.828f15b9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.124d3c0d.js",
-    "static/js/2.103e123d.chunk.js",
+    "static/js/2.828f15b9.chunk.js",
     "static/css/main.00abd3a5.chunk.css",
-    "static/js/main.88403c00.chunk.js"
+    "static/js/main.1f6fdb91.chunk.js"
   ]
 }
