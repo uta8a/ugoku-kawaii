@@ -91,6 +91,26 @@ const TextFragment = styled(TextFragmentBase)<{ 'data-start': string, 'data-numb
     }
   }
 `
+const Left = keyframes`
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 101%;
+  }
+`
+const Cover0 = styled(Base)`
+  background: #5ba1b0;
+  animation: ${Left} 0.5s 0.6s cubic-bezier(1,.05,.02,.92) forwards;
+`
+const Cover1 = styled(Base)`
+  background: #dce2e1;
+  animation: ${Left} 0.5s 0.4s cubic-bezier(1,.05,.02,.92) forwards;
+`
+const Cover2 = styled(Base)`
+  background: #b18f69;
+  animation: ${Left} 0.5s 0.2s cubic-bezier(1,.05,.02,.92) forwards;
+`
 const B = () => {
   let list = []
   let data = [
@@ -100,14 +120,19 @@ const B = () => {
     { start: "1.5s", number: 3 },
     { start: "0.7s", number: 4 },
   ]
+  let i = 0
   for(let p of data) {
-    list.push(<TextFragment data-start={ p.start } data-number={ p.number }><div></div></TextFragment>)
+    i++
+    list.push(<TextFragment key={i} data-start={ p.start } data-number={ p.number }><div></div></TextFragment>)
   }
   return (
     <BaseGG>
       <BaseG>
         { list }
       </BaseG>
+      <Cover0 />
+      <Cover1 />
+      <Cover2 />
     </BaseGG>
   )
 }
@@ -177,8 +202,10 @@ const Frame = () => {
      {top: "bottom", left: "right", size: "10%", rotate: "180deg"},
      {top: "bottom", left: "left", size: "10%", rotate: "270deg"},
    ]
+   let i = 0
    for(let p of data) {
-     list.push(<Cross data-top={p.top} data-left={p.left} data-size={p.size} data-rotate={p.rotate}><FrameRod1 /><FrameRod2 /></Cross>)
+     i++
+     list.push(<Cross key={i} data-top={p.top} data-left={p.left} data-size={p.size} data-rotate={p.rotate}><FrameRod1 /><FrameRod2 /></Cross>)
    }
    return (
      <BaseF>
