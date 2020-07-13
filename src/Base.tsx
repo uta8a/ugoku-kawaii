@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
 const Base = styled.div`
   top: 0;
@@ -7,6 +7,6 @@ const Base = styled.div`
   width: 100%;
   position: absolute;
   box-sizing: border-box;
-`
+`;
 
-export {Base}
+export { Base };
