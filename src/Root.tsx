@@ -19,15 +19,15 @@ const Background = styled(Base)`
     #003944,
     #00312e
   );
-  position: absolute;
 `;
 const Container = styled(Base)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: relative;
   @media (max-width: 450px) {
     grid-template-columns: repeat(1, 1fr);
   }
+  padding: 3rem;
 `;
 
 const RootSquare = styled(Base)`
@@ -44,40 +44,68 @@ const Title = styled.h1`
   font-family: -apple-system, "Hiragino Kaku Gothic ProN", Lato, メイリオ,
     Meiryo, sans-serif;
   font-size: 4rem;
-  padding-bottom: 3rem;
   text-align: center;
 `;
+const Main = styled.main`
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  min-height: 90vh;
+  margin: 0px auto;
+`;
+
+const Wrapper = styled.div`
+  background-color: #0B0C51;
+  overflow: hidden;
+  border: 3px solid lightblue;
+  border-radius: 5%;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0.5rem;
+`;
+const MiniWindow = styled.div`
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+background-image: linear-gradient(to right top, #b5d2ff, #bfccff, #cfc4ff, #e1bcfe, #f5b2f3);
+`;
+const MiniTitle = styled.div`
+  font-size: 3rem;
+  text-align: center;
+`;
+const Tile = (title: string) => {
+  return (
+    <Wrapper>
+      <MiniWindow />
+      <MiniTitle>{title}</MiniTitle>
+    </Wrapper>
+  );
+};
 const Root = () => {
   let list = [];
   let data = [
-    { path: "/day1", title: "day1" },
-    { path: "/day2", title: "day2" },
+    { path: "/day1", title: "改修中 day1" },
+    { path: "/day2", title: "改修中 day2" },
     { path: "/day3", title: "day3" },
   ];
   let i = 0;
   for (let p of data) {
     i++;
-    // list.push()
+    list.push(
+      <Link key={i} to={p.path}>
+        {Tile(p.title)}
+      </Link>
+    );
   }
 
   return (
     <Background>
-      <Container>
-        {/* title */}
+      <Main>
         <Title>うごくかわいい</Title>
-        {/* <RootSquare>
-          <Link to="/">Home</Link>
-        </RootSquare>
-        <RootSquare>
-          <Link to="/day1">DAY 1</Link>
-        </RootSquare>
-        <RootSquare>
-          <Link to="/day2">DAY 2</Link>
-        </RootSquare>
-        <RootSquare>
-          <Link to="/day3">DAY 3</Link>
-        </RootSquare> */}
-      </Container>
+        <Container>
+          {list}
+        </Container>
+      </Main>
     </Background>
   );
 };
