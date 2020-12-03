@@ -55,7 +55,7 @@ const Main = styled.main`
 `;
 
 const Wrapper = styled.div`
-  background-color: #0B0C51;
+  background-color: #0b0c51;
   overflow: hidden;
   border: 3px solid lightblue;
   border-radius: 5%;
@@ -67,7 +67,14 @@ const MiniWindow = styled.div`
   height: 200px;
   width: 200px;
   margin: 0 auto;
-background-image: linear-gradient(to right top, #b5d2ff, #bfccff, #cfc4ff, #e1bcfe, #f5b2f3);
+  background-image: linear-gradient(
+    to right top,
+    #b5d2ff,
+    #bfccff,
+    #cfc4ff,
+    #e1bcfe,
+    #f5b2f3
+  );
 `;
 const MiniTitle = styled.div`
   font-size: 3rem;
@@ -87,6 +94,7 @@ const Root = () => {
     { path: "/day1", title: "改修中 day1" },
     { path: "/day2", title: "改修中 day2" },
     { path: "/day3", title: "day3" },
+    { path: "/day4", title: "NotFound" },
   ];
   let i = 0;
   for (let p of data) {
@@ -102,9 +110,7 @@ const Root = () => {
     <Background>
       <Main>
         <Title>うごくかわいい</Title>
-        <Container>
-          {list}
-        </Container>
+        <Container>{list}</Container>
       </Main>
     </Background>
   );

@@ -5,6 +5,7 @@ import { HashRouter as Router, Link, Route } from "react-router-dom";
 import { Background, Usa } from "./Main";
 import Day2 from "./Day2";
 import Day3 from "./Day3";
+import Day4 from "./Day4";
 import Root from "./Root";
 
 const Main = () => {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/day1" exact component={Main} />
       <Route path="/day2" exact component={Day2} />
       <Route path="/day3" exact component={Day3} />
+      <Route path="/day4" exact component={Day4} />
     </Router>
   );
 }

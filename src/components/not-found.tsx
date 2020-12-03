@@ -31,7 +31,26 @@ const blink_p = keyframes`
     opacity: 1;
   }
 `;
-
+const blink_nf1 = keyframes`
+  0% {
+    opacity: 0;
+  }
+  19% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.05;
+  }
+  80% {
+    opacity: 0.05;
+  }
+  81% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 const draw_l = keyframes`
   to {
     stroke-dashoffset: 0px;
@@ -73,7 +92,8 @@ const SquareBase = styled(Base)<{ "data-time": number }>`
   height: ${(props) => props["data-time"]}px;
   width: ${(props) => props["data-time"]}px;
 `;
-const Main = styled(SquareBase)``;
+const Main = styled(SquareBase)`
+`;
 const FrameParent = styled(Base)`
   top: ${50 - 0.5 * 55}%;
   left: ${50 - 0.5 * 95}%;
@@ -102,7 +122,7 @@ position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-`
+`;
 const PageP = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-p.png");
   animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
@@ -207,6 +227,51 @@ const PageR3 = styled(PageR)`
   transform: translateX(-30%) scale(0.5) rotate(180deg);
   animation: ${draw_l} 0.2s ${BASETIME + 0.75}s ease forwards;
 `;
+
+
+/// 404
+const NfFrame = styled(FrameParent)`
+  border: none;
+  overflow: hidden;
+`;
+const NfOrig = styled(Base)`
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  top: calc(50% - 50vh);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+`;
+const NfFour = styled(NfOrig)`
+background-image: url("/ugoku-kawaii/page/char-4.png");
+// animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
+`;
+const NfZero = styled(NfOrig)`
+background-image: url("/ugoku-kawaii/page/char-0.png");
+// animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
+`;
+const Nf1 = styled(NfZero)`
+  left: -10%;
+  animation: ${blink_nf1} 0.2s ${BASETIME + 0.3}s ease forwards;
+`;
+const Nf2 = styled(NfFour)`
+  left: 10%;
+  animation: ${blink_nf1} 0.2s ${BASETIME + 0.5}s ease forwards;
+`;
+const Nf3 = styled(NfZero)`
+  left: 50%;
+  animation: ${blink_nf1} 0.2s ${BASETIME + 0.4}s ease forwards;
+`;
+const Nf4 = styled(NfZero)`
+  left: 70%;
+  animation: ${blink_nf1} 0.2s ${BASETIME + 0.6}s ease forwards;
+`;
+const Nf5 = styled(NfZero)`
+  left: -20%;
+  animation: ${blink_nf1} 0.2s ${BASETIME + 0.7}s ease forwards;
+`;
 /// html
 const Component: React.FC = () => {
   const { height, width } = useWindowDimensions();
@@ -215,7 +280,8 @@ const Component: React.FC = () => {
     <>
       <AllBg>
         <Main data-time={minlong}>
-          <FrameParent></FrameParent>
+          <FrameParent>
+          </FrameParent>
           <FrameChild></FrameChild>
           <PageP />
           <PageA />
@@ -231,6 +297,13 @@ const Component: React.FC = () => {
             <PageR2 />
             <PageR3 />
           </PageRWrapper>
+          <NfFrame>
+            <Nf1 />
+            <Nf2 />
+            <Nf3 />
+            <Nf4 />
+            <Nf5 />
+          </NfFrame>
         </Main>
       </AllBg>
     </>
