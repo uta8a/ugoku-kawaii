@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-// import {css} from '@emotion/css';
+import {css} from '@emotion/css';
 import {keyframes} from '@emotion/react';
 
 import { useWindowDimensions } from "../hooks";
@@ -24,8 +24,17 @@ const blink_p = keyframes`
   70% {
     opacity: 0;
   }
+  80% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
+  }
+`;
+
+const draw_l = keyframes`
+  to {
+    stroke-dashoffset: 0px;
   }
 `;
 
@@ -53,22 +62,20 @@ const FrameParent = styled(Base)`
   left: ${50 - 0.5 * 95}%;
   height: 55%;
   width: 95%;
-  border: solid 8px skyblue;
+  border: solid 8px black;
   @media screen and (max-width: 768px) {
-    border: solid 3px skyblue;
+    border: solid 3px black;
   }
-  opacity: 0.3;
 `;
 const FrameChild = styled(Base)`
   top: ${50 - 0.5 * 52}%;
   left: ${50 - 0.5 * 90}%;
   height: 52%;
   width: 90%;
-  border: solid 8px skyblue;
+  border: solid 8px black;
   @media screen and (max-width: 768px) {
-    border: solid 3px skyblue;
+    border: solid 3px black;
   }
-  opacity: 0.3;
 `;
 const PageOrig = styled(Base)`
 position: absolute;
@@ -80,17 +87,89 @@ position: absolute;
 `
 const PageP = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-p.png");
-  animation: ${blink_p} 0.4s 0.1s ease forwards;
+  animation: ${blink_p} 0.6s 0.1s ease 2 forwards;
 `;
 const PageA = styled(PageOrig)`
-  background-image: url("/ugoku-kawaii/page/char-a.png");
+background-image: url("/ugoku-kawaii/page/char-a.png");
+  animation: ${blink_p} 0.6s 0.0s ease 2 forwards;
 `;
 const PageG = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-g.png");
+  animation: ${blink_p} 0.6s 0.05s ease 2 forwards;
 `;
 const PageE = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-e.png");
+  animation: ${blink_p} 0.6s 0.15s ease 2 forwards;
 `;
+/// page < >
+type ComponentProps = {
+  className?: string;
+};
+const PageLR: React.FC<ComponentProps> = ({ className }) => (
+<svg
+   className={className}
+   xmlns="http://www.w3.org/2000/svg"
+   width="179.9308mm"
+   height="178.03587mm"
+   viewBox="0 0 179.9308 178.03587"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-18.814686,-64.202173)">
+    <g
+       fill="none"
+       id="g844"
+       transform="matrix(-1.6673625,0.87021563,-1.6740877,-0.86671977,351.80284,174.30751)">
+      <path
+         d="M 84.891205,9.3670986 V 109.3671 h -100"
+         stroke="#000000"
+         stroke-width="15"
+         id="path833" />
+    </g>
+  </g>
+</svg>
+
+);
+const PageLWrapper = styled(Base)`
+  position: absolute;
+  height: 10%;
+  width: 10%;
+  top: 45%;
+  left: calc(25% - 0.5*10%);
+`;
+const PageRWrapper = styled(Base)`
+  position: absolute;
+  height: 10%;
+  width: 10%;
+  top: 45%;
+  left: calc(75% - 0.5*10%);
+`;
+const PageL = styled(PageLR)`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0.5) rotate(0deg);
+  stroke-dasharray: 700px;
+  stroke-dashoffset: 700px;
+  animation: ${draw_l} 0.35s 0.75s ease forwards;
+`;
+const PageR = styled(PageLR)`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0.5) rotate(180deg);
+  stroke-dasharray: 700px;
+  stroke-dashoffset: 700px;
+  animation: ${draw_l} 0.35s 0.75s ease forwards;
+`;
+
 /// html
 const Component: React.FC = () => {
   const { height, width } = useWindowDimensions();
@@ -105,6 +184,12 @@ const Component: React.FC = () => {
           <PageA />
           <PageG />
           <PageE />
+          <PageLWrapper>
+            <PageL />
+          </PageLWrapper>
+          <PageRWrapper>
+            <PageR />
+          </PageRWrapper>
         </Main>
       </AllBg>
     </>
