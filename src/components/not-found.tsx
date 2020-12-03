@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import {css} from '@emotion/css';
-import {keyframes} from '@emotion/react';
+import { css } from "@emotion/css";
+import { keyframes } from "@emotion/react";
 
 import { useWindowDimensions } from "../hooks";
 // Time
@@ -74,6 +74,20 @@ const draw_right = keyframes`
   }
 `;
 
+const main_off = keyframes`
+  to {
+    opacity: 0;
+  }
+`;
+
+const showup = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 // abstruct components
 const Base = styled.div`
   top: 0;
@@ -83,8 +97,14 @@ const Base = styled.div`
   position: absolute;
   box-sizing: border-box;
 `;
+const NoBase = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+`;
 const AllBg = styled(Base)`
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 `;
 const SquareBase = styled(Base)<{ "data-time": number }>`
   top: calc(50% - 0.5 * ${(props) => props["data-time"]}px);
@@ -92,8 +112,13 @@ const SquareBase = styled(Base)<{ "data-time": number }>`
   height: ${(props) => props["data-time"]}px;
   width: ${(props) => props["data-time"]}px;
 `;
+
+/// BASETIME+1.5
 const Main = styled(SquareBase)`
+  animation: ${main_off} 0.3s ${BASETIME+1.5}s ease forwards;
 `;
+const Scene2 = styled(SquareBase)``;
+
 const FrameParent = styled(Base)`
   top: ${50 - 0.5 * 55}%;
   left: ${50 - 0.5 * 95}%;
@@ -115,9 +140,9 @@ const FrameChild = styled(Base)`
   }
 `;
 const PageOrig = styled(Base)`
-position: absolute;
+  position: absolute;
   width: 15%;
-  left: ${50 - 0.5*15}%;
+  left: ${50 - 0.5 * 15}%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -128,7 +153,7 @@ const PageP = styled(PageOrig)`
   animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
 `;
 const PageA = styled(PageOrig)`
-background-image: url("/ugoku-kawaii/page/char-a.png");
+  background-image: url("/ugoku-kawaii/page/char-a.png");
   animation: ${blink_p} 0.6s ${BASETIME + 0}s ease 2 forwards;
 `;
 const PageG = styled(PageOrig)`
@@ -144,39 +169,38 @@ type ComponentProps = {
   className?: string;
 };
 const PageLR: React.FC<ComponentProps> = ({ className }) => (
-<svg
-   className={className}
-   xmlns="http://www.w3.org/2000/svg"
-   width="179.9308mm"
-   height="178.03587mm"
-   viewBox="0 0 179.9308 178.03587"
-   version="1.1"
-   id="svg8">
-  <defs
-     id="defs2" />
-  <g
-     id="layer1"
-     transform="translate(-18.814686,-64.202173)">
-    <g
-       fill="none"
-       id="g844"
-       transform="matrix(-1.6673625,0.87021563,-1.6740877,-0.86671977,351.80284,174.30751)">
-      <path
-         d="M 84.891205,9.3670986 V 109.3671 h -100"
-         stroke="#000000"
-         stroke-width="15"
-         id="path833" />
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    width="179.9308mm"
+    height="178.03587mm"
+    viewBox="0 0 179.9308 178.03587"
+    version="1.1"
+    id="svg8"
+  >
+    <defs id="defs2" />
+    <g id="layer1" transform="translate(-18.814686,-64.202173)">
+      <g
+        fill="none"
+        id="g844"
+        transform="matrix(-1.6673625,0.87021563,-1.6740877,-0.86671977,351.80284,174.30751)"
+      >
+        <path
+          d="M 84.891205,9.3670986 V 109.3671 h -100"
+          stroke="#000000"
+          stroke-width="15"
+          id="path833"
+        />
+      </g>
     </g>
-  </g>
-</svg>
-
+  </svg>
 );
 const PageLWrapper = styled(Base)`
   position: absolute;
   height: 10%;
   width: 10%;
   top: 44.5%;
-  left: calc(25% - 0.5*10%);
+  left: calc(25% - 0.5 * 10%);
   transform: translateX(50%);
   animation: ${draw_left} 0.2s ${BASETIME + 1.1}s ease forwards;
 `;
@@ -185,7 +209,7 @@ const PageRWrapper = styled(Base)`
   height: 10%;
   width: 10%;
   top: 44.5%;
-  left: calc(75% - 0.5*10%);
+  left: calc(75% - 0.5 * 10%);
   transform: translateX(-50%);
   animation: ${draw_right} 0.2s ${BASETIME + 1.1}s ease forwards;
 `;
@@ -227,7 +251,6 @@ const PageR3 = styled(PageR)`
   transform: translateX(-30%) scale(0.5) rotate(180deg);
   animation: ${draw_l} 0.2s ${BASETIME + 0.75}s ease forwards;
 `;
-
 
 /// 404
 const NfFrame = styled(FrameParent)`
@@ -272,6 +295,79 @@ const Nf5 = styled(NfZero)`
   left: -20%;
   animation: ${blink_nf1} 0.2s ${BASETIME + 0.7}s ease forwards;
 `;
+
+/// many sentence
+const MsFrame = styled(FrameChild)`
+  border: none;
+  // overflow: hidden;
+`;
+const MsOrig = styled(NoBase)`
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  // top: calc(50% - 50vh);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+`;
+const MsOs = styled(MsOrig)`
+  background-image: url("/ugoku-kawaii/page/osagashi.png");
+  // animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
+`;
+const MsDe = styled(MsOrig)`
+  background-image: url("/ugoku-kawaii/page/deshita.png");
+  // animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
+`;
+
+const MsL = styled(MsOs)`
+  left: 15px;
+  width: calc(${(100 * 8) / 18}% - 30px);
+  top: 0;
+`;
+const MsR = styled(MsDe)`
+  width: calc(${(100 * 10) / 18}% - 30px);
+  right: 15px;
+  bottom: 0;
+`;
+const MsL1 = styled(MsL)`
+  animation: ${showup} 0.05s ${BASETIME + 1.8}s ease forwards; 
+`;
+const MsR1 = styled(MsR)`
+  animation: ${showup} 0.05s ${BASETIME + 1.9}s ease forwards;
+`;
+const MsL2 = styled(MsL)`
+  top: 10%;
+  animation: ${showup} 0.05s ${BASETIME + 2.1}s ease forwards; 
+`;
+const MsR2 = styled(MsR)`
+  bottom: 10%;
+  animation: ${showup} 0.05s ${BASETIME + 2.0}s ease forwards;
+`;
+const MsL3 = styled(MsL)`
+  top: 20%;
+  animation: ${showup} 0.05s ${BASETIME + 2.2}s ease forwards; 
+`;
+const MsR3 = styled(MsR)`
+  bottom: 20%;
+  animation: ${showup} 0.05s ${BASETIME + 2.3}s ease forwards;
+`;
+const MsL4 = styled(MsL)`
+  top: 30%;
+  animation: ${showup} 0.05s ${BASETIME + 2.5}s ease forwards; 
+`;
+const MsR4 = styled(MsR)`
+  bottom: 30%;
+  animation: ${showup} 0.05s ${BASETIME + 2.4}s ease forwards;
+`;
+const MsL5 = styled(MsL)`
+  top: 40%;
+  animation: ${showup} 0.05s ${BASETIME + 2.6}s ease forwards; 
+`;
+const MsR5 = styled(MsR)`
+  bottom: 40%;
+  animation: ${showup} 0.05s ${BASETIME + 2.7}s ease forwards;
+`;
 /// html
 const Component: React.FC = () => {
   const { height, width } = useWindowDimensions();
@@ -280,8 +376,7 @@ const Component: React.FC = () => {
     <>
       <AllBg>
         <Main data-time={minlong}>
-          <FrameParent>
-          </FrameParent>
+          <FrameParent></FrameParent>
           <FrameChild></FrameChild>
           <PageP />
           <PageA />
@@ -305,6 +400,22 @@ const Component: React.FC = () => {
             <Nf5 />
           </NfFrame>
         </Main>
+        <Scene2 data-time={minlong}>
+          {/* <FrameParent></FrameParent>
+          <FrameChild></FrameChild> */}
+          <MsFrame>
+            <MsL1 />
+            <MsR1 />
+            <MsL2 />
+            <MsR2 />
+            <MsL3 />
+            <MsR3 />
+            <MsL4 />
+            <MsR4 />
+            <MsL5 />
+            <MsR5 />
+          </MsFrame>
+        </Scene2>
       </AllBg>
     </>
   );
