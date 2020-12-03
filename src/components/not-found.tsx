@@ -13,13 +13,13 @@ const blink_p = keyframes`
     opacity: 0;
   }
   10% {
-    opacity: 1;
+    opacity: 0.7;
   }
   30% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
   50% {
-    opacity: 1;
+    opacity: 0.6;
   }
   70% {
     opacity: 0;
@@ -155,7 +155,7 @@ const PageLWrapper = styled(Base)`
   position: absolute;
   height: 10%;
   width: 10%;
-  top: 45%;
+  top: 44.5%;
   left: calc(25% - 0.5*10%);
   transform: translateX(50%);
   animation: ${draw_left} 0.2s ${BASETIME + 1.1}s ease forwards;
@@ -164,13 +164,13 @@ const PageRWrapper = styled(Base)`
   position: absolute;
   height: 10%;
   width: 10%;
-  top: 45%;
+  top: 44.5%;
   left: calc(75% - 0.5*10%);
   transform: translateX(-50%);
   animation: ${draw_right} 0.2s ${BASETIME + 1.1}s ease forwards;
 `;
 const PageL = styled(PageLR)`
-  position: relative;
+  position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
@@ -178,10 +178,18 @@ const PageL = styled(PageLR)`
   transform: scale(0.5) rotate(0deg);
   stroke-dasharray: 700px;
   stroke-dashoffset: 700px;
-  animation: ${draw_l} 0.35s ${BASETIME + 0.75}s ease forwards;
+  animation: ${draw_l} 0.2s ${BASETIME + 0.85}s ease forwards;
+`;
+const PageL2 = styled(PageL)`
+  transform: translateX(30%) scale(0.5) rotate(0deg);
+  animation: ${draw_l} 0.2s ${BASETIME + 0.75}s ease forwards;
+`;
+const PageL3 = styled(PageL)`
+  transform: translateX(-30%) scale(0.5) rotate(0deg);
+  animation: ${draw_l} 0.2s ${BASETIME + 0.95}s ease forwards;
 `;
 const PageR = styled(PageLR)`
-  position: relative;
+  position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
@@ -189,9 +197,16 @@ const PageR = styled(PageLR)`
   transform: scale(0.5) rotate(180deg);
   stroke-dasharray: 700px;
   stroke-dashoffset: 700px;
-  animation: ${draw_l} 0.35s ${BASETIME + 0.75}s ease forwards;
+  animation: ${draw_l} 0.2s ${BASETIME + 0.85}s ease forwards;
 `;
-
+const PageR2 = styled(PageR)`
+  transform: translateX(30%) scale(0.5) rotate(180deg);
+  animation: ${draw_l} 0.2s ${BASETIME + 0.95}s ease forwards;
+`;
+const PageR3 = styled(PageR)`
+  transform: translateX(-30%) scale(0.5) rotate(180deg);
+  animation: ${draw_l} 0.2s ${BASETIME + 0.75}s ease forwards;
+`;
 /// html
 const Component: React.FC = () => {
   const { height, width } = useWindowDimensions();
@@ -208,9 +223,13 @@ const Component: React.FC = () => {
           <PageE />
           <PageLWrapper>
             <PageL />
+            <PageL2 />
+            <PageL3 />
           </PageLWrapper>
           <PageRWrapper>
             <PageR />
+            <PageR2 />
+            <PageR3 />
           </PageRWrapper>
         </Main>
       </AllBg>
