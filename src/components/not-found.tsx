@@ -5,7 +5,7 @@ import {keyframes} from '@emotion/react';
 
 import { useWindowDimensions } from "../hooks";
 // Time
-const BASETIME = 0;
+const BASETIME = 0.7;
 
 /// animation
 const blink_p = keyframes`
@@ -35,6 +35,23 @@ const blink_p = keyframes`
 const draw_l = keyframes`
   to {
     stroke-dashoffset: 0px;
+  }
+`;
+const draw_left = keyframes`
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const draw_right = keyframes`
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 `;
 
@@ -84,22 +101,23 @@ position: absolute;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0;
 `
 const PageP = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-p.png");
-  animation: ${blink_p} 0.6s 0.1s ease 2 forwards;
+  animation: ${blink_p} 0.6s ${BASETIME + 0.1}s ease 2 forwards;
 `;
 const PageA = styled(PageOrig)`
 background-image: url("/ugoku-kawaii/page/char-a.png");
-  animation: ${blink_p} 0.6s 0.0s ease 2 forwards;
+  animation: ${blink_p} 0.6s ${BASETIME + 0}s ease 2 forwards;
 `;
 const PageG = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-g.png");
-  animation: ${blink_p} 0.6s 0.05s ease 2 forwards;
+  animation: ${blink_p} 0.6s ${BASETIME + 0.05}s ease 2 forwards;
 `;
 const PageE = styled(PageOrig)`
   background-image: url("/ugoku-kawaii/page/char-e.png");
-  animation: ${blink_p} 0.6s 0.15s ease 2 forwards;
+  animation: ${blink_p} 0.6s ${BASETIME + 0.15}s ease 2 forwards;
 `;
 /// page < >
 type ComponentProps = {
@@ -139,6 +157,8 @@ const PageLWrapper = styled(Base)`
   width: 10%;
   top: 45%;
   left: calc(25% - 0.5*10%);
+  transform: translateX(50%);
+  animation: ${draw_left} 0.2s ${BASETIME + 1.1}s ease forwards;
 `;
 const PageRWrapper = styled(Base)`
   position: absolute;
@@ -146,6 +166,8 @@ const PageRWrapper = styled(Base)`
   width: 10%;
   top: 45%;
   left: calc(75% - 0.5*10%);
+  transform: translateX(-50%);
+  animation: ${draw_right} 0.2s ${BASETIME + 1.1}s ease forwards;
 `;
 const PageL = styled(PageLR)`
   position: relative;
@@ -156,7 +178,7 @@ const PageL = styled(PageLR)`
   transform: scale(0.5) rotate(0deg);
   stroke-dasharray: 700px;
   stroke-dashoffset: 700px;
-  animation: ${draw_l} 0.35s 0.75s ease forwards;
+  animation: ${draw_l} 0.35s ${BASETIME + 0.75}s ease forwards;
 `;
 const PageR = styled(PageLR)`
   position: relative;
@@ -167,7 +189,7 @@ const PageR = styled(PageLR)`
   transform: scale(0.5) rotate(180deg);
   stroke-dasharray: 700px;
   stroke-dashoffset: 700px;
-  animation: ${draw_l} 0.35s 0.75s ease forwards;
+  animation: ${draw_l} 0.35s ${BASETIME + 0.75}s ease forwards;
 `;
 
 /// html
