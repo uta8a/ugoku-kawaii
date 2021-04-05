@@ -9,3 +9,8 @@ nextjs
 typescript
 yarn, npm(どちらかに統一したい)
 ```
+
+```
+yarn install
+yarn husky install
+```
