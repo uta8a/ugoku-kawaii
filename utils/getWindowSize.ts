@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Component } from 'react'
-
+import { useState, useEffect } from 'react';
+import { WindowSize } from '@/utils/types'
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
@@ -8,7 +8,7 @@ function getWindowDimensions() {
     };
 }
 
-function useWindowDimensions() {
+function useWindowDimensions(): WindowSize {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     useEffect(() => {
@@ -23,4 +23,4 @@ function useWindowDimensions() {
     return windowDimensions;
 }
 
-export {getWindowDimensions, useWindowDimensions}
+export default useWindowDimensions;
