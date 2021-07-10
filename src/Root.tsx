@@ -95,6 +95,7 @@ const Root = () => {
     { path: "/day2", title: "改修中 day2" },
     { path: "/day3", title: "day3" },
     { path: "/day4", title: "NotFound" },
+    { path: "/day5", title: "(>_<)" },
   ];
   let i = 0;
   for (let p of data) {
