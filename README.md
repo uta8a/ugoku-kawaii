@@ -1,16 +1,4 @@
-## web-template
-```
-eslint
-prettier
-husky&lint-staged
-editorconfig
-docker
-nextjs
-typescript
-yarn, npm(どちらかに統一したい)
-```
+## うごくカワイイ
+かわいい、かっこいいモーションを作ります。
 
-```
-yarn install
-yarn husky install
-```
+現在は旧から新へ移行中
