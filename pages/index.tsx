@@ -23,7 +23,7 @@ const IndexPage: NextPage<Props> = (props: Props)=> {
   return (
     <>
       {props.path.map(e => <Link key={e.path} href={`/post/${e.path.replace(/\.tsx/, '')}`}>
-        <a>{e.path.replace(/\.tsx/, '')}</a>
+        <a><h2>{e.path.replace(/\.tsx/, '')}</h2></a>
       </Link>)}
     </>
   );
